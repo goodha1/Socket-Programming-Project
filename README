@@ -1,0 +1,35 @@
+a. Name: Bowei Chen
+b. Student ID: 1099576262
+c. What have I done in this assignment:
+	I have done all the requirements as described in the Project document. 
+	In Phase1, the 3 servers will boot up and run and the client will get the filename from the commandline. Then client will read data from the file and establish TCP connection with the edge server. Finally, client will send the data to the edge server.
+	In Phases2, the edge server will determine every operation and send them to right server(server_and or server_or) to caculate. UDP connection is used between servers. 
+	In Phases3, when caculation is complete, it will send back to the edge server.The edge server will send back to client. 
+
+d. what each file does:
+	client.c: it will read data from the file and using TCP connection send to edge server. After calculation, it will get the result and show on the screen. 
+	edge.c: it will get the data from client and determine every operation and send them to right server(server_and or server_or) to caculate. when caculation is complete, the edge server will receive the result and send back to the client.
+	server_and.c: it gets data from edge server and do "AND" operation, then send back the result.
+	server_or.c: it gets data from edge server and do "OR" operation, then send back the result.
+
+e. how to run the programs:
+	1. Frist open 4 terminals. And use one to type"make all" to compile all the files. 
+	2. use another terminal to type "make server_or", this terminal will run server_or.
+	3. use another terminal to type "make server_and", this terminal will run server_and.
+	4. use another terminal to type "make edge", this terminal will run edge.
+	5. use the first terminal to type "./client  <input_file_name>" , this terminal will run the client.
+
+f. The format of all the messages exchanged:
+   The client send an integer array which has (3*lines) integers to the edge server.
+   The edge send an integer array which has 2 integers to the right server, depends it is "AND" or "OR". It loops (lines) times.
+   The server_or and server_and send 1 integer which is the result back to edge server. It loops (lines) times totally.
+   The edge server send an integer array which has (lines) integers back to client.
+
+
+g. the idiosyncrasy:
+	No fail condition.
+
+h. reuse of the code:
+	Socket frame from Beej guide
+	(http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html)
+	They are marked in the program. 
