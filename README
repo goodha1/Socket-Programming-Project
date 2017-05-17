@@ -1,5 +1,4 @@
-a. Name: Bowei Chen
-b. Student ID: 1099576262
+
 c. What have I done in this assignment:
 	I have done all the requirements as described in the Project document. 
 	In Phase1, the 3 servers will boot up and run and the client will get the filename from the commandline. Then client will read data from the file and establish TCP connection with the edge server. Finally, client will send the data to the edge server.
